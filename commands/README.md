@@ -22,9 +22,9 @@ module.exports = {
 If it isn't set up like this, an error will occur, and the bot won't function properly
     
 Make sure that:
-    - No two command files have the same name
-    - Whenever you're done with adding in your information for a key, you add a comma at the end (Errors will occur if you don't)
-    - You put semi-colons at the end of your code (Good Practice)
-    - Each file name is the name of a command (Again, so it's easier to track down and edit)
+  - No two command files have the same name
+  - Whenever you're done with adding in your information for a key, you add a comma at the end (Errors will occur if you don't)
+  - You put semi-colons at the end of your code (Good Practice)
+  - Each file name is the name of a command (Again, so it's easier to track down and edit)
    
 If you have questions, please DM Nintendo.
