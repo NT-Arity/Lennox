@@ -9,7 +9,7 @@ module.exports = {
         .setDescription("Starts a game of russian roulette."),
     async execute(interaction) {
         const row = new MessageActionRow().addComponents(new MessageButton().setCustomId("yes").setLabel("Yes").setStyle("PRIMARY"), new MessageButton().setCustomId("no").setLabel("No").setStyle("DANGER"));
-        const filter = i => (i.customId === "yes" || i.customId === "no") && i.user.id === "571474744377868308";
+        const filter = i => (i.customId === "yes" || i.customId === "no") && i.user.id === interaction.user.id;
         const collector = interaction.channel.createMessageComponentCollector({ filter, time: 5000 });
 
         // Embeds
