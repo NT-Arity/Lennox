@@ -17,8 +17,8 @@ client.commands = new Collection();
 
 // Use the File System to grab all the files that we need, and put it in an array
 // Each one will return something similar to this: ['fileName1.js', 'fileName2.js']
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // ['ping.js', 'user.js', 'server.js']
-const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js')); // ['ready.js', 'interactionCreate.js']
+const commandFiles = fs.readdirSync('../Lennox/commands').filter(file => file.endsWith('.js')) // ['ping.js', 'user.js', 'server.js']
+const eventFiles = fs.readdirSync('../Lennox/events').filter(file => file.endsWith('.js')); // ['ready.js', 'interactionCreate.js']
 
 // For each file in the commands folder, get the name of the command, and the command itself, and put it in a Collection
 for (const file of commandFiles) {
