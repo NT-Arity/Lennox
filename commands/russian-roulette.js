@@ -10,7 +10,7 @@ module.exports = {
     async execute(interaction) {
         const row = new MessageActionRow().addComponents(new MessageButton().setCustomId("yes").setLabel("Yes").setStyle("PRIMARY"), new MessageButton().setCustomId("no").setLabel("No").setStyle("DANGER"));
         const filter = i => (i.customId === "yes" || i.customId === "no") && i.user.id === "571474744377868308";
-        const collector = interaction.channel.createMessageComponentCollector({ filter, time: 5000 });
+        const collector = interaction.channel.createMessageComponentCollector({ filter, time: 3000 });
 
         // Embeds
         const embedRRS = new MessageEmbed()
@@ -52,7 +52,7 @@ module.exports = {
                 await i.editReply({ embeds: [faith] });
             } else if (i.customId === "no") {
                 await i.deferUpdate();
-                await i.editReply("Action cancelled!");
+                await i.editReply({ content: "Action cancelled!", embeds: [], components: [] });
             }
         });
     }
