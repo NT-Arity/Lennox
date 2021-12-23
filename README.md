@@ -7,4 +7,5 @@
   - `npm i discord.js @discordjs/builders @discordjs/rest discord-api-types`
 3. Clone the repository
   - `git clone https://github.com/NintendoTool-Arity/Lennox`
-4. Move all the files from the file name `Lennox`, and move them into your main file.
+4. Make changes to the bot (Ex: add in new commands)
+5. Stage and commit your progress
