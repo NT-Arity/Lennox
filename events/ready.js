@@ -6,5 +6,6 @@ module.exports = {
     execute(client) {
         // Once the client is ready, execute this code ONLY ONCE.
         console.log(`Ready! Logged in as ${client.user.tag}.`);
+        client.user.setActivity(`for slash commands.`, { type: "WATCHING" });
     }
 }
