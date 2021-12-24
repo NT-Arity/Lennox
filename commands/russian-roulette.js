@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, italic } = require(`@discordjs/builders`);
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
-const { runInNewContext } = require('vm');
 const wait = require('util').promisify(setTimeout);
 
 module.exports = {
