@@ -5,7 +5,7 @@
 
 // Initialize the required variables, each requiring a certain file.
 const fs = require('fs'); // FS is Node's "File System". It enables interacting with the file system in a way modeled on standard POSIX functions
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Intents, Collection, Permissions } = require('discord.js');
 const { token } = require('../Lennox/config.json') 
 
 // One thing to note about using require(), if you're calling a file that is in the same path directory as the file you're editing, you'll use `./`
@@ -37,6 +37,10 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args));
     }
 }
+
+client.on("interactionCreate", async interaction => {
+    const member = interaction.guild.members.fetch({ user: interaction.user.id });
+})
 
 // Login the bot
 client.login(token);
