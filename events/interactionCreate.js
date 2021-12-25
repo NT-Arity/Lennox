@@ -17,7 +17,7 @@ module.exports = {
         } catch (error) {
             // If an error occurs, please reply to the user with the error, and console.error the error as well.
             console.error(error);
-            await interaction.reply({ content: `There was an error while trying to execute that command.\n\n\`\`\`js\n${error}\n\`\`\`` });
+            await interaction.reply({ content: `There was an error while trying to execute that command.\n\n\`\`\`js\n${error}\n\`\`\``, ephemeral: true });
         }
     }
 }
