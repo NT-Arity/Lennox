@@ -13,28 +13,29 @@ module.exports = {
 
         // Embeds
         const embedRRS = new MessageEmbed()
-        .setAuthor("Russian Roulette", `${interaction.guild.iconURL({ dynamic: true })}`)
+        // .setAuthor("Russian Roulette", `${interaction.guild.iconURL({ dynamic: true })}`)
+        .setAuthor({ name: "Russian Roulette", iconURL: `${interaction.guild.iconURL({ dynamic: true })}` })
         .setDescription("Feeling lucky? You have a 16.67% chance of death.\n\nClick \"Yes\" to start and \"No\" to cancel.")
         .setColor("GREY")
         .setImage("https://images.genius.com/16f606d26f368ed895bbdc4fabbfeeb7.1000x601x1.jpg")
         .setFooter(`Slash Command executed by ${interaction.user.tag}`);
 
         const embedRRM = new MessageEmbed()
-        .setAuthor("Spinning...", "https://commonlook.com/wp-content/uploads/2019/05/spinner-1.gif")
+        .setAuthor({ name: "Spinning...", iconURL: "https://commonlook.com/wp-content/uploads/2019/05/spinner-1.gif" })
         .setDescription("Please wait while the cylinder is spinning...")
         .setColor("GREY")
         .setImage("https://i.imgur.com/aCcPPPe.gif")
         .setFooter(`Slash Command executed by ${interaction.user.tag}`);
 
         const embedRRE1 = new MessageEmbed()
-        .setAuthor("You lived!", "https://twemoji.maxcdn.com/v/latest/72x72/1f44d.png")
+        .setAuthor({ name: "You lived!", iconURL: "https://twemoji.maxcdn.com/v/latest/72x72/1f44d.png" })
         .setDescription("Congrats! You've survived russian roulette.")
         .setColor("GREEN")
         .setImage("https://i.pinimg.com/474x/67/a5/3b/67a53b09649a646bcb02e6d2de75d6a5.jpg")
         .setFooter(`Slash Command executed by ${interaction.user.tag}`);
 
         const embedRRE2 = new MessageEmbed()
-        .setAuthor("You died!", "https://twemoji.maxcdn.com/v/latest/72x72/1f44e.png")
+        .setAuthor({ name: "You died!", iconURL: "https://twemoji.maxcdn.com/v/latest/72x72/1f44e.png" })
         .setDescription("That sucks, you've just died.")
         .setColor("DARK_RED")
         .setImage("https://i.pinimg.com/originals/ea/87/cf/ea87cfbd6b50bff9e4b903e66014373b.gif")
