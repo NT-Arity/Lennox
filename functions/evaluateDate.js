@@ -1,5 +1,5 @@
-module.exports = function(_dateNum) {
-    switch (_dateNum) {
+module.exports = function(dateNum) {
+    switch (dateNum) {
         case 0:
             return "Jan";
             break;
