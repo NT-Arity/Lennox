@@ -8,25 +8,28 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("user")
-        .setDescription("Replies with user information."),
+        .setDescription("Replies with user information.")
+        .addUserOption(option => option.setName("target").setDescription("The user you want to get info about {OPTIONAL}")),
     async execute(interaction) {
-        var date = interaction.user.createdAt;
+        var target = interaction.options.getUser("target");
+        var user = target ? target : interaction.user;
+        var date = user.createdAt;
         var month = dateToMTH(date.getUTCMonth());
         var day = date.getUTCDate();
         var year = date.getUTCFullYear();
         var creationDate = `${month} ${day}, ${year}`;
 
-        await interaction.user.fetch().then(user => {
+        await user.fetch().then(person => {
 
             const embedUI = new MessageEmbed()
             .setTitle("User Info")
             .addFields({
                 name: "Tag & House",
-                value: `${interaction.user.tag} ${houseCheck(interaction.user)}`,
+                value: `${user.tag} ${houseCheck(person)}`,
                 inline: false
             }, {
                 name: "ID",
-                value: `${interaction.user.id}`,
+                value: `${user.id}`,
                 inline: false
             }, {
                 name: "Discord Account Creation Date",
@@ -34,20 +37,20 @@ module.exports = {
                 inline: false
             }, {
                 name: "Banner Color",
-                value: `${user.hexAccentColor ? user.hexAccentColor : "N/A"}`,
+                value: `${person.hexAccentColor ? person.hexAccentColor : "N/A"}`,
                 inline: false
             }, {
                 name: "Bot?",
-                value: `${interaction.user.bot ? ":white_check_mark:" : ":x:"}`,
+                value: `${user.bot ? ":white_check_mark:" : ":x:"}`,
                 inline: false
             }, {
                 name: "Banner Image",
                 value: "\u200B",
             })
-            .setColor(`${user.hexAccentColor ? user.hexAccentColor : "#04ae70"}`)
-            .setThumbnail(`${interaction.user.displayAvatarURL({ dynamic: true })}`)
+            .setColor(`${person.hexAccentColor ? person.hexAccentColor : "#04ae70"}`)
+            .setThumbnail(`${user.displayAvatarURL({ dynamic: true })}`)
             .setFooter(`Slash command executed by ${interaction.user.tag}`)
-            .setImage(`${interaction.user.bannerURL({ dynamic: true, size: 2048 }) ? interaction.user.bannerURL({ dynamic: true, size: 2048 }) : "https://cdn.discordapp.com/attachments/837778991066775553/924504316881014834/Untitled520_20211225222850_remastered.png"}`)
+            .setImage(`${user.bannerURL({ dynamic: true, size: 2048 }) ? user.bannerURL({ dynamic: true, size: 2048 }) : "https://cdn.discordapp.com/attachments/837778991066775553/924504316881014834/Untitled520_20211225222850_remastered.png"}`)
             .setTimestamp();
 
             interaction.reply({ embeds: [embedUI] });
